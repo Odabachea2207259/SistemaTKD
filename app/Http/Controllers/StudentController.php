@@ -15,4 +15,9 @@ class StudentController extends Controller
     {
         return view('/alumnos/add');
     }
+
+    public function info()
+    {
+        return view('/alumnos/info');
+    }
 }

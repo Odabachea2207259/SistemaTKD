@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -26,7 +27,11 @@ Route::get('/alumnos',[StudentController::class, 'main']);
 
 Route::get('/alumnos/add',[StudentController::class, 'add']);
 
+Route::get('/alumnos/info',[StudentController::class, 'info']);
+
 Route::get('/pagos',[UserController::class, 'pagos']);
+
+Route::get('/pagos/add',[PaymentController::class, 'add']);
 
 Route::get('/pedidos',[UserController::class, 'pedidos']);
 

@@ -8,8 +8,8 @@
 
 @section('content')
 
-    <div class="relative overflow-x-auto w-[70%] h-[50%] flex place-items-center justify-center items-center">
-        <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <div class="relative overflow-x-auto w-[80%] h-[80%] flex place-items-center justify-center items-center">
+        <table id="tableID" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 cursor-pointer">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="px-6 py-3">
@@ -73,8 +73,26 @@
         </table>
     </div>
 
-    <div class=" w-full h-[50%] relative flex justify-end items-end">
-        <a href="<?= url('/alumnos/add'); ?>"class="w-[10rem] border-8 bg-[#1C6AD5] border-[#F4EB50] rounded-full px-5 text-white text-lg mx-2 mb-4 text-center">Añadir</a>
-        <a href="" class="w-[10rem] border-8 bg-[#1C6AD5] border-[#F4EB50] rounded-full px-5 text-white text-lg mx-2 mb-4 text-center">Imprimir</a>
+    <div class=" w-full h-[10%] relative flex justify-end items-end">
+        <a href="<?= url('/alumnos/add'); ?>"class="w-[10rem] border-8 bg-[#1C6AD5] border-[#F4EB50] rounded-full px-5 text-white text-lg mx-2 text-center">Añadir</a>
+        <a href="" class="w-[10rem] border-8 bg-[#1C6AD5] border-[#F4EB50] rounded-full px-5 text-white text-lg mx-2 text-center">Imprimir</a>
     </div>
+
+    @section('scripts')
+        <script>
+            const table = document.getElementById("tableID");
+
+            if(table){
+                for(var i = 0; i < table.rows.length; i++){
+                    table.rows[i].onclick = function(){
+                        tableText(this);
+                    };
+                }
+            }
+
+            function tableText(tableRow){
+                window.location.replace('/alumnos/info');
+            }
+        </script>
+    @endsection
 @endsection
